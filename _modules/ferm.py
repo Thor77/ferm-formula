@@ -28,7 +28,7 @@ def build_rule(rule, rule_defaults={}):
     ]
     action = r.pop('action')
     key_values.extend(
-        map(lambda kv: _render_kv(kv[0], kv[1]), rule.items())
+        map(lambda kv: _render_kv(kv[0], kv[1]), r.items())
     )
     if action:
         key_values.append(action)
