@@ -16,7 +16,7 @@ def _render_kv(key, value):
     return '{} {}'.format(key, value)
 
 
-def build_rule(rule, rule_defaults={}):
+def build_rule(rule, rule_defaults={}, comment=None):
     '''
     Build config line from rule
     '''
@@ -26,6 +26,10 @@ def build_rule(rule, rule_defaults={}):
         _render_kv('table', r.pop('table')),
         _render_kv('chain', r.pop('chain'))
     ]
+    if comment:
+        key_values.append(
+            'mod comment comment "{}"'.format(comment)
+        )
     action = r.pop('action', None)
     key_values.extend(
         map(lambda kv: _render_kv(kv[0], kv[1]), r.items())
