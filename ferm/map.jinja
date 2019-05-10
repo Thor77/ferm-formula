@@ -1,0 +1,14 @@
+{% set ferm = salt['pillar.get']('ferm', {
+    'lookup': {
+        'pkg': 'ferm',
+        'cfg': '/etc/ferm.conf',
+        'service': 'ferm',
+    },
+    'rule_defaults': {
+        'domain': ['ip', 'ip6'],
+        'table': 'filter',
+        'chain': 'INPUT',
+        'action': 'ACCEPT',
+    },
+    'rules': {}
+}, merge=True) %}
