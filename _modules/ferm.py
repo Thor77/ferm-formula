@@ -26,7 +26,8 @@ def build_rule(rule, rule_defaults={}, comment=None):
         _render_kv('table', r.pop('table')),
         _render_kv('chain', r.pop('chain'))
     ]
-    if comment:
+    if 'policy' not in r and comment:
+        # don't add comment for policy, because that's not allowed
         key_values.append(
             'mod comment comment "{}"'.format(comment)
         )
