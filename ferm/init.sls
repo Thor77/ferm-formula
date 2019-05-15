@@ -1,3 +1,5 @@
+{% from 'ferm/map.jinja' import ferm with context %}
+
 ferm_pkg:
   pkg.installed:
     - name: {{ ferm.lookup.pkg }}
