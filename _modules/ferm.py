@@ -27,6 +27,9 @@ def build_rule(rule, rule_defaults={}, comment=None):
         _render_kv('table', r.pop('table')),
         _render_kv('chain', r.pop('chain'))
     ]
+    # insert mod before any other statement
+    if 'mod' in r:
+        key_values.append(_render_kv('mod', r.pop('mod')))
     if 'policy' not in r and comment:
         # don't add comment for policy, because that's not allowed
         key_values.append(
