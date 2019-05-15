@@ -12,7 +12,8 @@ def __virtual__():
 
 
 def _render_kv(key, value):
-    value = '({})'.format(' '.join(map(str, value))) if type(value) == list else value
+    value = '({})'.format(' '.join(map(str, value))) \
+                if type(value) == list else value
     return '{} {}'.format(key, value)
 
 
