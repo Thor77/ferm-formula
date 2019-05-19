@@ -25,13 +25,14 @@ ferm:
 
 ### Rules
 ```yaml
-rules:
-  '10 - policy drop':  # domain (ip ip6) table filter chain INPUT policy DROP mod comment comment "10 - policy drop";
-    policy: 'DROP'
-    action: ''
-  '20 - tcp 80/443':  # domain (ip ip6) table filter chain INPUT proto tcp dport (80 443) mod comment comment "10 - tcp 80/443" ACCEPT;
-    proto: 'tcp'
-    dport:
-      - 80
-      - 443
+ferm:
+  rules:
+    '10 - policy drop':  # domain (ip ip6) table filter chain INPUT policy DROP mod comment comment "10 - policy drop";
+      policy: 'DROP'
+      action: ''
+    '20 - tcp 80/443':  # domain (ip ip6) table filter chain INPUT proto tcp dport (80 443) mod comment comment "10 - tcp 80/443" ACCEPT;
+      proto: 'tcp'
+      dport:
+        - 80
+        - 443
 ```
